@@ -1,36 +1,45 @@
 # AGENTS.md
-This file guides Codex (AI agent) when generating or modifying code in this repository.
+This file guides Codex when generating or modifying code in this repository.
 
 ## Project Setup
-- Always initialize a clean project structure if the repo is empty.
-- Include a `README.md` with setup and usage instructions.
-- Add a `.gitignore` suitable for the language/framework.
+- Always initialize the repo as a Python project if empty.
+- Create a `main.py` as the entry point with example code.
+- Add a `requirements.txt` file with pinned versions for dependencies.
+- Add a `.gitignore` for Python (ignore venv, __pycache__, build, etc.).
+- Provide a `README.md` with:
+  - Setup instructions
+  - How to run the app
+  - How to run tests
 
 ## Coding Conventions
-- Follow language-specific best practices (e.g., PEP8 for Python, StandardJS for Node).
-- Use clear, descriptive variable and function names.
-- Document public functions and modules with docstrings/comments.
+- Follow PEP8 style guidelines.
+- Use type hints for all functions.
+- Write clear docstrings for public functions, classes, and modules (Google-style).
+- Keep functions small and modular.
 
 ## Testing
-- Every new feature should include at least one unit test.
-- Use the recommended test framework for the language:
-  - Python → pytest
-  - Node.js → Jest
-  - Rust → cargo test
-- Ensure `npm test`, `pytest`, or `cargo test` passes before committing.
+- Use `pytest` for all tests.
+- Place tests in a `tests/` directory.
+- Every new feature must include at least one unit test.
+- Ensure `pytest` passes before committing.
 
 ## Dependencies
-- Use minimal dependencies; prefer standard libraries when possible.
-- Pin versions in requirements files (`requirements.txt`, `package.json`, `Cargo.toml`).
+- Use `requirements.txt` for dependencies.
+- Pin versions explicitly (e.g., `numpy==1.26.4`).
+- Use standard library modules whenever possible to reduce dependencies.
 
 ## Documentation
-- Update `README.md` when adding new features.
-- Include code examples in docs when useful.
+- Update `README.md` when new functionality is added.
+- Include short code examples in the README for new modules.
+- If functionality is complex, generate a `docs/` folder with Markdown docs.
 
 ## Commit & Pull Requests
-- Commit messages should be concise but descriptive (e.g., "Add reverseWords function with unit tests").
-- Open a Pull Request if the change touches multiple files or is non-trivial.
+- Commit messages should be short and descriptive:
+  - Example: `Add function to filter even numbers with pytest test`
+- Group related changes into a single commit.
+- Open a Pull Request if changes affect multiple modules or introduce new features.
 
 ## Additional Notes
-- Prefer cross-platform solutions (Linux, macOS, Windows).
-- Always run linting/formatting before committing.
+- Code must be compatible with **Python 3.10+**.
+- Ensure the code runs cross-platform (Linux, macOS, Windows).
+- Prefer dependency management via `venv` or `poetry` (if explicitly requested).
